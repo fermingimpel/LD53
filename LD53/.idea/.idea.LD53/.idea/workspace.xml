@@ -8,6 +8,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b0fc6facff52490f8c5788181f70c5cc16f000/56/0243e30c/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Script/Ship/ShipController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -36,6 +37,14 @@
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../LD53\LD53.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\NG_232\Desktop\test" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.2.17f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\NG_232\Desktop\LD53\LD53 -debugCodeOptimization" />
@@ -82,7 +91,13 @@
       <option name="presentableId" value="Default" />
       <updated>1682734859727</updated>
       <workItem from="1682734861007" duration="758000" />
-      <workItem from="1682735637873" duration="366000" />
+      <workItem from="1682735637873" duration="1264000" />
+      <workItem from="1682737315963" duration="2124000" />
+      <workItem from="1682740098942" duration="356000" />
+      <workItem from="1682740498390" duration="905000" />
+      <workItem from="1682741463362" duration="621000" />
+      <workItem from="1682743409980" duration="898000" />
+      <workItem from="1682779979311" duration="9472000" />
     </task>
     <servers />
   </component>
