@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class HouseRotation : MonoBehaviour
 {
+    [SerializeField] private float minSpeed;
+    [SerializeField] private float maxSpeed;
+
     private float rotationX;
     private float rotationY;
     private float rotationZ;
@@ -12,9 +15,9 @@ public class HouseRotation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rotationX = Random.Range(1.0f, 20.0f);
-        rotationY = Random.Range(1.0f, 20.0f);
-        rotationZ = Random.Range(1.0f, 20.0f);
+        rotationX = Random.Range(minSpeed, maxSpeed);
+        rotationY = Random.Range(minSpeed, maxSpeed);
+        rotationZ = Random.Range(minSpeed, maxSpeed);
     }
 
     // Update is called once per frame
