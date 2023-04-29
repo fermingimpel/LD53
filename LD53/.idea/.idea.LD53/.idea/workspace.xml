@@ -38,7 +38,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../LD53\LD53.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../test\LD53.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\NG_232\Desktop\test" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -98,6 +98,7 @@
       <workItem from="1682741463362" duration="621000" />
       <workItem from="1682743409980" duration="898000" />
       <workItem from="1682779979311" duration="9472000" />
+      <workItem from="1682792041029" duration="606000" />
     </task>
     <servers />
   </component>
