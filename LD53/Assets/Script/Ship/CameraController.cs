@@ -17,16 +17,16 @@ public class CameraController : MonoBehaviour
         Rigidbody = GetComponent<Rigidbody>();
     }
 
-    void OnCameraMove(InputValue value)
+    void OnLook(InputValue value)
     {
         MouseAxis = value.Get<Vector2>();
     }
 
     void OnRoll(InputValue value)
     {
-        RollDirection = value.Get<float>();
+        RollDirection = -value.Get<float>();
     }
-
+    
     private void FixedUpdate()
     {
         Vector3 Direction = new Vector3(MouseAxis.y, MouseAxis.x,RollDirection);
