@@ -32,6 +32,7 @@ public class OptionsManager : MonoBehaviour
 
     private void OnEnable()
     {
+        if (!eventsystem) eventsystem = EventSystem.current;
         eventsystem.SetSelectedGameObject(FirstSelectedGameObject);
     }
 
