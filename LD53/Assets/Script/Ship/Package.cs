@@ -8,18 +8,14 @@ public class Package : MonoBehaviour
     [SerializeField] private float maxPackageSpeed = 5.0f;
     [SerializeField] private float weight = 1;
 
-    public static UnityAction<GameObject> onPackageDestroyed;
     public Vector3 orbitCenter = Vector3.zero;
     public bool inOrbit = false;
-
 
     public Rigidbody Rb { get; private set; }
 
     void Start()
     {
         Rb = GetComponent<Rigidbody>();
-        Debug.Log("Puede ser PAAAAAAAAAAAAA");
-        Debug.Log("ANASHEEEEEEEEEEEEEEEEEEEEE");
 
         Destroy(gameObject, packageLifeSpan);
     }
@@ -33,8 +29,8 @@ public class Package : MonoBehaviour
         Rb.AddForce(weight * (orbitCenter - transform.position), ForceMode.Acceleration);
     }
 
-    private void OnDestroy()
+    public void PackageDelivered()
     {
-        onPackageDestroyed?.Invoke(gameObject);
+        Destroy(gameObject, 2.0f);
     }
 }

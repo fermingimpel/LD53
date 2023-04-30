@@ -10,10 +10,12 @@ public class Level : MonoBehaviour
     private CustomGrid grid;
     private List<GameObject> spawnedBuildings;
     private Queue<GameObject> currentHouses;
+    private ShipPackageController shipPackageController;
 
     // Start is called before the first frame update
     private void Start()
     {
+        shipPackageController = FindObjectOfType<ShipPackageController>();
         grid = GetComponent<CustomGrid>();
         spawnedBuildings = new List<GameObject>();
         SpawnHouses();
@@ -25,6 +27,26 @@ public class Level : MonoBehaviour
         {
             spawnedBuildings.Add(Instantiate(mapPrefabs[Random.Range(0, mapPrefabs.Count)]));
             spawnedBuildings[i].transform.position = grid.SetHouseLocation();
+            spawnedBuildings[i].GetComponent<House>().SetCurrent(false);
         }
+
+        ChangeHousesToDelivery();
     }
+
+    public void ChangeHousesToDelivery()
+    {
+        List<GameObject> tempList = new List<GameObject>();
+
+        for(int i = 0; i < shipPackageController.GetMaxNumOfDeliveries(); i++)
+        {
+            House houseToDelivery = spawnedBuildings[Random.Range(0, spawnedBuildings.Count)].GetComponent<House>();
+            houseToDelivery.SetCurrent(true);
+            tempList.Add(houseToDelivery.gameObject);
+            spawnedBuildings.Remove(houseToDelivery.gameObject);
+        }
+
+        for (int i = 0; i < tempList.Count; i++)
+            spawnedBuildings.Add(tempList[i]);
+    }
+
 }
