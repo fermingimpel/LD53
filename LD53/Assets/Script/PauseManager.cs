@@ -44,6 +44,11 @@ public class PauseManager : MonoBehaviour
       //todo: add animations later
    }
 
+   public void LoadScene(string name)
+   {
+      SceneManager.LoadScene(name);
+   }
+
    public void OnRestart()
    {
       //todo: replace with game scene
