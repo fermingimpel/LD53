@@ -332,7 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 2119416684}
+  m_FirstSelected: {fileID: 808502660005431476}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &964320269
@@ -455,12 +455,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2119416684 stripped
+--- !u!1 &808502660005431476 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5928186891843844123, guid: 1e3c9d14229204441a9eed47d76f9cf3, type: 3}
-  m_PrefabInstance: {fileID: 6448387701265641647}
+  m_PrefabInstance: {fileID: 1782742179762311821}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &6448387701265641647
+--- !u!1001 &1782742179762311821
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -468,10 +468,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1096801241970338840, guid: 1e3c9d14229204441a9eed47d76f9cf3, type: 3}
-      propertyPath: Eventsystem
-      value: 
-      objectReference: {fileID: 964320268}
     - target: {fileID: 3258686209369177338, guid: 1e3c9d14229204441a9eed47d76f9cf3, type: 3}
       propertyPath: m_Name
       value: Ship
@@ -480,10 +476,6 @@ PrefabInstance:
       propertyPath: m_UIInputModule
       value: 
       objectReference: {fileID: 964320267}
-    - target: {fileID: 8292682198088145052, guid: 1e3c9d14229204441a9eed47d76f9cf3, type: 3}
-      propertyPath: Eventsystem
-      value: 
-      objectReference: {fileID: 964320268}
     - target: {fileID: 8410541779487950037, guid: 1e3c9d14229204441a9eed47d76f9cf3, type: 3}
       propertyPath: m_RootOrder
       value: 2
