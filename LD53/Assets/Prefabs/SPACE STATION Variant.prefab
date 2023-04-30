@@ -90,6 +90,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: abf5534aa4793f54f9f31c0f64c8189a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2119113352570877340}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: abf5534aa4793f54f9f31c0f64c8189a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 884553974571577252}
     - targetCorrespondingSourceObject: {fileID: 5951324066535398588, guid: abf5534aa4793f54f9f31c0f64c8189a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5645246097465480520}
@@ -141,6 +144,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 24
   m_Center: {x: -5.87, y: 19.592419, z: 0.6746308}
+--- !u!114 &884553974571577252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758640969167333554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d59f28af3a26b749bfcae355abf8ebc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6111678907157088607 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5951324066535398588, guid: abf5534aa4793f54f9f31c0f64c8189a, type: 3}
