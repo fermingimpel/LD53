@@ -26,11 +26,10 @@ public class Package : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Rb.velocity = Vector3.ClampMagnitude(Rb.velocity, maxPackageSpeed);
-
         if (!inOrbit)
             return;
 
+        Rb.velocity = Vector3.ClampMagnitude(Rb.velocity, maxPackageSpeed);
         Rb.AddForce(weight * (orbitCenter - transform.position), ForceMode.Acceleration);
     }
 

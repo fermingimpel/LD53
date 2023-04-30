@@ -23,7 +23,7 @@ public class Level : MonoBehaviour
     {
         for (int i = 0; i < houseQty; i++)
         {
-            spawnedBuildings.Add(Instantiate(mapPrefabs[Random.Range(0, mapPrefabs.Count - 1)]));
+            spawnedBuildings.Add(Instantiate(mapPrefabs[Random.Range(0, mapPrefabs.Count)]));
             spawnedBuildings[i].transform.position = grid.SetHouseLocation();
         }
     }
