@@ -19,16 +19,6 @@ public class Level : MonoBehaviour
         SpawnHouses();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnDrawGizmos()
-    {
-    }
-
     void SpawnHouses()
     {
         for (int i = 0; i < houseQty; i++)
