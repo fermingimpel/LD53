@@ -229,7 +229,7 @@
                 {
                     "name": "down",
                     "id": "2a6fb8f7-d7b9-4e78-9945-e363bc9388e9",
-                    "path": "<Mouse>/delta/up",
+                    "path": "<Mouse>/delta/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
@@ -240,7 +240,7 @@
                 {
                     "name": "up",
                     "id": "de4576da-8c6c-484b-8aae-79dfc39a0442",
-                    "path": "<Mouse>/delta/down",
+                    "path": "<Mouse>/delta/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",

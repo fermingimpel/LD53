@@ -20,6 +20,8 @@ public class CameraController : MonoBehaviour
     void OnLook(InputValue value)
     {
         MouseAxis = value.Get<Vector2>();
+        
+        if (InputManager.Instance.isPitchInverted) MouseAxis.y *= -1;
     }
 
     void OnRoll(InputValue value)

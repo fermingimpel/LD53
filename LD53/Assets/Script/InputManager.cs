@@ -3,10 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class InputManager : MonoBehaviour
 {
     public static InputManager Instance { get; private set; }
+
+    [FormerlySerializedAs("isPitchRotated")] [SerializeField] public bool isPitchInverted = false; 
 
     private PlayerInput _playerInput;
 
