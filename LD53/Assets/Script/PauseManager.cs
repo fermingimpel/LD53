@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -6,9 +7,14 @@ public class PauseManager : MonoBehaviour
 {
    [SerializeField] GameObject PauseScreen;
    [SerializeField] GameObject OptionsScreen;
-   [SerializeField] private EventSystem Eventsystem;
+   private EventSystem eventsystem;
    [SerializeField] private GameObject FirstSelectedGameObject;
-   
+
+   private void Start()
+   {
+      eventsystem = EventSystem.current;
+   }
+
    public void OnResume()
    {
       Time.timeScale = 1;
@@ -24,7 +30,7 @@ public class PauseManager : MonoBehaviour
    {
       if (InputManager.Instance.GetCurrentActionMapping() == "Player")
       {
-         Eventsystem.SetSelectedGameObject(FirstSelectedGameObject);
+         eventsystem.SetSelectedGameObject(FirstSelectedGameObject);
          Time.timeScale = 0;
          PauseScreen.SetActive(true);
          InputManager.Instance.ChangeActionMapping("UI");
@@ -60,7 +66,7 @@ public class PauseManager : MonoBehaviour
    public void OnOptionsExit()
    {
       //todo: change to animations later
-      Eventsystem.SetSelectedGameObject(FirstSelectedGameObject);
+      eventsystem.SetSelectedGameObject(FirstSelectedGameObject);
       PauseScreen.SetActive(true);
       OptionsScreen.SetActive(false);
    }

@@ -12,7 +12,7 @@ public class OptionsManager : MonoBehaviour
     [SerializeField] private GameObject ControlsSettingsPanel;
     
     [Header("UI Functionality")]
-    [SerializeField] private EventSystem Eventsystem;
+    private EventSystem eventsystem;
     [SerializeField] private GameObject FirstSelectedGameObject;
     [SerializeField] private GameObject FirstVideoSettingsGameObject;
     [SerializeField] private GameObject FirstControlsSettingsGameObject;
@@ -23,6 +23,7 @@ public class OptionsManager : MonoBehaviour
 
     private void Start()
     {
+        eventsystem = EventSystem.current;
         Panels.Add(VideoSettingsPanel);
         Panels.Add(GraphicsSettingsPanel);
         Panels.Add(AudioSettingsPanel);
@@ -31,31 +32,31 @@ public class OptionsManager : MonoBehaviour
 
     private void OnEnable()
     {
-        Eventsystem.SetSelectedGameObject(FirstSelectedGameObject);
+        eventsystem.SetSelectedGameObject(FirstSelectedGameObject);
     }
 
     public void OpenVideoSettings()
     {
         EnablePanel(VideoSettingsPanel);
-        Eventsystem.SetSelectedGameObject(FirstVideoSettingsGameObject);
+        eventsystem.SetSelectedGameObject(FirstVideoSettingsGameObject);
     }
 
     public void OpenGraphicsSettings()
     {
         EnablePanel(GraphicsSettingsPanel);
-        Eventsystem.SetSelectedGameObject(FirstGraphicsSettingsGameObject);
+        eventsystem.SetSelectedGameObject(FirstGraphicsSettingsGameObject);
     }
 
     public void OpenAudioSettins()
     {
         EnablePanel(AudioSettingsPanel);
-        Eventsystem.SetSelectedGameObject(FirstAudioSettingsGameObject);
+        eventsystem.SetSelectedGameObject(FirstAudioSettingsGameObject);
     }
 
     public void OpenControlsSettings()
     {
         EnablePanel(ControlsSettingsPanel);
-        Eventsystem.SetSelectedGameObject(FirstControlsSettingsGameObject);
+        eventsystem.SetSelectedGameObject(FirstControlsSettingsGameObject);
     }
 
     void EnablePanel(GameObject Panel)
