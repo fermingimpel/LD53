@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class House : MonoBehaviour
 {
+    [SerializeField] private float gravity = 1;
+    [SerializeField] GameObject targetHouseLight;
     private bool isCurrent;
     private ShipPackageController shipPackageController;
 
@@ -15,6 +17,17 @@ public class House : MonoBehaviour
     public void SetCurrent(bool current)
     {
         isCurrent = current;
+
+        //isCurrent ? targetHouseLight.SetActive(true) : targetHouseLight.SetActive(false);
+        if (isCurrent)
+        {
+            targetHouseLight.SetActive(true);
+        }
+        else
+        {
+            targetHouseLight.SetActive(false);
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)

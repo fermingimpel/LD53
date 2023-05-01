@@ -1,9 +1,10 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AsteroidBehaviour : MonoBehaviour
 {
-    public Action OnDestroyed;
+    public UnityAction<GameObject> OnDestroyed;
 
     [SerializeField] private float asteroidSpeed = 10.0f;
     [SerializeField] private float lifeSpan = 10.0f;
@@ -31,6 +32,6 @@ public class AsteroidBehaviour : MonoBehaviour
 
     private void OnDestroy()
     {
-        OnDestroyed?.Invoke();
+        OnDestroyed?.Invoke(gameObject);
     }
 }

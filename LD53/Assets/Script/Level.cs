@@ -48,5 +48,4 @@ public class Level : MonoBehaviour
         for (int i = 0; i < tempList.Count; i++)
             spawnedBuildings.Add(tempList[i]);
     }
-
 }

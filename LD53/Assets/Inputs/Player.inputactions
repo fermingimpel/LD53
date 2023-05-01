@@ -60,9 +60,18 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Skip",
+                    "type": "Button",
+                    "id": "b6157c6e-b5cb-4a0b-8a47-afe0b1c7c831",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Turbo",
                     "type": "Button",
-                    "id": "286a8b8c-253f-4def-8a35-4ff6edc07fa4",
+                    "id": "6a20e8ad-76d0-46bb-af79-4d0c8704dedd",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -380,7 +389,29 @@
                 },
                 {
                     "name": "",
-                    "id": "6856050b-71c9-4eb2-91c8-6a2af223f17a",
+                    "id": "2dc0c2dd-65d7-4dfa-a82e-6b465d69a5a1",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Skip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d25e046a-509b-4bfd-8b93-1536dc51d37e",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Skip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "67e31cae-807d-428c-bdac-c1fc36c7e0a0",
                     "path": "<Keyboard>/leftShift",
                     "interactions": "Press(behavior=2)",
                     "processors": "",
@@ -391,7 +422,7 @@
                 },
                 {
                     "name": "",
-                    "id": "c900bac1-1b90-4017-8b3c-8b42b44ebd83",
+                    "id": "3829706c-2574-4df5-af84-83e0b5480ee7",
                     "path": "<Gamepad>/leftStickPress",
                     "interactions": "Press",
                     "processors": "",

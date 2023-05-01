@@ -20,7 +20,7 @@ public class EndGame : MonoBehaviour
         data = FindObjectOfType<PersistentData>();
 
         timePlayedText.text = "Time Played: " + data.timePlayed;
-        packagesText.text = "Packages delivered: " + data.packages;
+        packagesText.text = "Satisfactory deliveries: " + data.packages;
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;

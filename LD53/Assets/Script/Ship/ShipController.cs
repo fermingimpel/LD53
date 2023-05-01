@@ -1,15 +1,20 @@
+using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
 public class ShipController : MonoBehaviour
 {
+    public UnityAction<GameObject> OnDestroyed;
+
     //Inspector variables
     [Header("Movement")]
     [SerializeField] private float Force = 10f;
     [SerializeField] private float TurboForce = 20f;
     [SerializeField] private float turboCooldown = 1f;
+
 
     [Header("Audio")] 
     [SerializeField] private AudioClip StartEngine;
@@ -23,9 +28,11 @@ public class ShipController : MonoBehaviour
     
     
     //Variables
+    private AsteroidSpawner asteroidSpawner;
     private Vector3 Movement;
     private Vector2 MovementAxis;
     private float HoverDirection;
+    private GameObject asteroidDir;
     private bool isTurboOn = false;
     private bool canActivateTurbo = true;
     private bool isInCooldown = false;
@@ -40,6 +47,8 @@ public class ShipController : MonoBehaviour
     {
         Rigidbody = GetComponent<Rigidbody>();
         MovementAxis = Vector2.zero;
+        asteroidSpawner = GameObject.Find("GameManager").GetComponent<AsteroidSpawner>();
+        asteroidDir = GameObject.Find("AsteroidDir");
         _audioManager = AudioManager.Instance;
         shipAnimator = GetComponentInChildren<Animator>();
         currentEngineSound = LoopEngine;
@@ -76,20 +85,33 @@ public class ShipController : MonoBehaviour
         }
     }
 
-    void Update()
+    private void FixedUpdate()
     {
+        float currentForce = isTurboOn ? TurboForce : Force;
+        Vector3 Direction = new Vector3(MovementAxis.x, HoverDirection, MovementAxis.y);
+        Rigidbody.AddForce(transform.TransformDirection(Direction) * currentForce, ForceMode.Acceleration);
+    }
+
+    private void Update()
+    {
+        UpdateHitscanRot();
         if (isTurboOn)
         {
             StartCoroutine(ScreenShakeManager.Instance.ScreenShake(turboShakeDuration, turboShakeMagnitude));
         }
     }
 
-    private void FixedUpdate()
+    private void UpdateHitscanRot()
     {
-        Debug.Log(Rigidbody.velocity.magnitude);
-        float currentForce = isTurboOn ? TurboForce : Force;
-        Vector3 Direction = new Vector3(MovementAxis.x, HoverDirection, MovementAxis.y);
-        Rigidbody.AddForce(transform.TransformDirection(Direction) * currentForce, ForceMode.Acceleration);
+        Vector3 closestAst = asteroidSpawner.asteroids[0].transform.position;
+
+        foreach (var asteroid in asteroidSpawner.asteroids)
+        {
+            if (Vector3.Distance(transform.position, asteroid.transform.position) < Vector3.Distance(transform.position, closestAst))
+                closestAst = asteroid.transform.position;
+        }
+        
+        asteroidDir.transform.LookAt(closestAst);
     }
 
     private bool IsVectorCloseToZero(Vector2 vector, float offset)
@@ -109,7 +131,9 @@ public class ShipController : MonoBehaviour
         if (_audioManager.GetCurrentSFX().clip != StopEngine && 
             IsVectorCloseToZero(MovementAxis, 0.05f) && IsFloatCloseToZero(HoverDirection, 0.05f))
         {
-            OnTurbo();
+            if (isTurboOn)
+                OnTurbo();
+            
             canActivateTurbo = false;
             _audioManager.StopShipSound();
             _audioManager.Play2DShipSound(StopEngine);

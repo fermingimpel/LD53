@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class AsteroidSpawner : MonoBehaviour
 {
-    private float spawnRadius = 10f;
+    [SerializeField] float spawnRadius = 10f;
 
     [SerializeField] List<GameObject> asteroidPrefab;
     [SerializeField] Transform player;
     [SerializeField] float spawnInterval;
+    [SerializeField] float initialDelay;
+    public List<GameObject> asteroids;
 
     private int currentAsteroids;
     private int maxAsteroids = 10;
@@ -24,8 +26,14 @@ public class AsteroidSpawner : MonoBehaviour
 
         if (spawnOnStart)
         {
-            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroidsWithDelay());
         }
+    }
+
+    IEnumerator SpawnAsteroidsWithDelay()
+    {
+        yield return new WaitForSeconds(initialDelay);
+        StartCoroutine(SpawnAsteroids());
     }
 
     IEnumerator SpawnAsteroids()
@@ -46,10 +54,12 @@ public class AsteroidSpawner : MonoBehaviour
         Vector3 spawnPosition = transform.position + Random.onUnitSphere * spawnRadius;
         GameObject asteroid = Instantiate(asteroidPrefab[Random.Range(0, asteroidPrefab.Count)], player.position + spawnPosition, Quaternion.identity, gameObject.transform);
         asteroid.GetComponent<AsteroidBehaviour>().OnDestroyed += OnAsteroidDestroyed;
+        asteroids.Add(asteroid);
     }
 
-    void OnAsteroidDestroyed()
+    void OnAsteroidDestroyed(GameObject asteroid)
     {
         currentAsteroids--;
+        asteroids.Remove(asteroid);
     }
 }
