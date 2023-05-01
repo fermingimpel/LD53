@@ -36,6 +36,14 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        if(shipSource)
+            shipSource = GameObject.FindWithTag("Player").GetComponent<AudioSource>();
+        if(musicSource)
+            musicSource = GetComponent<AudioSource>();
+    }
+
     public void Play2DSound(AudioClip clip)
     {
         shipSource.PlayOneShot(clip);
