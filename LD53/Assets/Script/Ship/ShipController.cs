@@ -13,12 +13,12 @@ public class ShipController : MonoBehaviour
     [SerializeField] private float Force = 10f;
 
 
-    [Header("Audio")] 
+    [Header("Audio")]
     [SerializeField] private AudioClip StartEngine;
     public AudioClip LoopEngine;
     public AudioClip StopEngine;
-    
-    
+
+
     //Variables
     private AsteroidSpawner asteroidSpawner;
     private Vector3 Movement;
@@ -64,23 +64,42 @@ public class ShipController : MonoBehaviour
 
     private void UpdateHitscanRot()
     {
-        Vector3 closestAst = asteroidSpawner.asteroids[0].transform.position;
+        MeshRenderer[] arrowMeshes = asteroidDir.GetComponentsInChildren<MeshRenderer>();
 
-        foreach (var asteroid in asteroidSpawner.asteroids)
+        if (asteroidSpawner.asteroids.Count > 0)
         {
-            if (Vector3.Distance(transform.position, asteroid.transform.position) < Vector3.Distance(transform.position, closestAst))
-                closestAst = asteroid.transform.position;
+            foreach (var mesh in arrowMeshes)
+            {
+                if (!mesh.enabled)
+                    mesh.enabled = true;
+
+                Vector3 closestAst = asteroidSpawner.asteroids[0].transform.position;
+
+                foreach (var asteroid in asteroidSpawner.asteroids)
+                {
+                    if (Vector3.Distance(transform.position, asteroid.transform.position) <
+                        Vector3.Distance(transform.position, closestAst))
+                        closestAst = asteroid.transform.position;
+                }
+
+                asteroidDir.transform.LookAt(closestAst);
+            }
         }
-        
-        asteroidDir.transform.LookAt(closestAst);
+        else
+        {
+            foreach (var mesh in arrowMeshes)
+            {
+                mesh.enabled = false;
+            }
+        }
     }
 
     private bool IsVectorCloseToZero(Vector2 vector, float offset)
     {
-        return vector.x >= (-0.05 - offset) && vector.x <= (0.05 + offset) && 
+        return vector.x >= (-0.05 - offset) && vector.x <= (0.05 + offset) &&
                vector.y >= (-0.05 - offset) && vector.y <= (0.05 + offset);
     }
-    
+
     private bool IsFloatCloseToZero(float value, float offset)
     {
         return value >= (-0.05 - offset) && value <= (0.05 + offset);
@@ -88,7 +107,7 @@ public class ShipController : MonoBehaviour
 
     public void PlayThrusterSound()
     {
-        if (_audioManager.GetCurrentSFX().clip != StopEngine && 
+        if (_audioManager.GetCurrentSFX().clip != StopEngine &&
             IsVectorCloseToZero(MovementAxis, 0.05f) && IsFloatCloseToZero(HoverDirection, 0.05f))
         {
             _audioManager.StopShipSound();
