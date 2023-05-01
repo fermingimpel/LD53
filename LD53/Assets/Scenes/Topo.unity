@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.077968694, g: 0.091723196, b: 0.1551055, a: 1}
+  m_IndirectSpecularColor: {r: 0.07891954, g: 0.09180216, b: 0.15579084, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -431,10 +431,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2c986dbf80baa44e9c1b50407b6cabf, type: 3}
---- !u!82 &1887859022 stripped
+--- !u!82 &1183729531 stripped
 AudioSource:
-  m_CorrespondingSourceObject: {fileID: 6810767851429207693, guid: 1e3c9d14229204441a9eed47d76f9cf3, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8716498042381021503, guid: 1e3c9d14229204441a9eed47d76f9cf3, type: 3}
   m_PrefabInstance: {fileID: 81004187}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &2080623678 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1679960501198791610, guid: 77c93d7fd35ffd640898c3802d1af74a, type: 3}
+  m_PrefabInstance: {fileID: 5156239991857596915}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &436199503209394318
 PrefabInstance:
@@ -625,7 +630,11 @@ PrefabInstance:
     - target: {fileID: 7149402942607648152, guid: 77c93d7fd35ffd640898c3802d1af74a, type: 3}
       propertyPath: shipSource
       value: 
-      objectReference: {fileID: 1887859022}
+      objectReference: {fileID: 1183729531}
+    - target: {fileID: 7149402942607648152, guid: 77c93d7fd35ffd640898c3802d1af74a, type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 2080623678}
     - target: {fileID: 8252934592471858291, guid: 77c93d7fd35ffd640898c3802d1af74a, type: 3}
       propertyPath: m_Name
       value: AudioManager
