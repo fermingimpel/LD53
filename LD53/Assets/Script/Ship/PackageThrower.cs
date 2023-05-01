@@ -19,6 +19,7 @@ public class PackageThrower : MonoBehaviour
     {
         shipPackageController = GetComponent<ShipPackageController>();
         playerHUD = GetComponent<PlayerHUD>();
+        playerHUD.SetPowerBarEnabled(false);
     }
 
     void Update()
@@ -40,6 +41,7 @@ public class PackageThrower : MonoBehaviour
         if (chargingPackageForce)
         {
             forceCharge = initialForceCharge;
+            playerHUD.SetPowerBarEnabled(true);
             playerHUD.SetPowerImageValue(0, minPowerToThrow / maxForceCharge);
         }
         else
@@ -54,6 +56,7 @@ public class PackageThrower : MonoBehaviour
                     instantiatedPackage.GetComponent<Rigidbody>().AddForce(transform.forward * forceCharge);
 
                     shipPackageController.PackageThrowed();
+                    playerHUD.SetPowerBarEnabled(false);
                 }
             }
             else

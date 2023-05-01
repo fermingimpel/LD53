@@ -9,6 +9,7 @@ public class PlayerHUD : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI packagesRemainingText;
     [SerializeField] private Image powerImageSlider;
+    [SerializeField] private GameObject powerBar;
 
     [SerializeField] Color powerNotReadyColor;
     [SerializeField] Color powerReadyColor;
@@ -30,6 +31,11 @@ public class PlayerHUD : MonoBehaviour
             powerImageSlider.color = powerReadyColor;
         else
             powerImageSlider.color = powerNotReadyColor;
+    }
+
+    public void SetPowerBarEnabled(bool Value)
+    {
+        powerBar.SetActive(Value);
     }
 
 }
