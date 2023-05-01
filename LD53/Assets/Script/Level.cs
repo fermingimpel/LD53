@@ -7,9 +7,10 @@ public class Level : MonoBehaviour
     [SerializeField] private int houseQty = 18;
     [SerializeField] private List<GameObject> mapPrefabs;
 
+    public List<GameObject> currentHouses;
+
     private CustomGrid grid;
     private List<GameObject> spawnedBuildings;
-    private Queue<GameObject> currentHouses;
     private ShipPackageController shipPackageController;
 
     // Start is called before the first frame update
@@ -19,6 +20,17 @@ public class Level : MonoBehaviour
         grid = GetComponent<CustomGrid>();
         spawnedBuildings = new List<GameObject>();
         SpawnHouses();
+    }
+
+    private void Update()
+    {
+        foreach (var spawnedBuilding in spawnedBuildings)
+        {
+            if (spawnedBuilding.GetComponent<House>().GetIsCurrent())
+                currentHouses.Add(spawnedBuilding);
+            else if (currentHouses.Contains(spawnedBuilding))
+                currentHouses.Remove(spawnedBuilding);
+        }
     }
 
     void SpawnHouses()
