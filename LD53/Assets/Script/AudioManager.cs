@@ -6,10 +6,21 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    public enum MixMode
+    {
+        Linear,
+        Logarithmic
+    }
+    
+    [Header("Sources")]
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioSource musicSource;
+    [Header("Mixers")]
     [SerializeField] private AudioMixer SFXAudioMixer;
     [SerializeField] private AudioMixer musicAudioMixer;
+    [Header("Settings")]
+    [SerializeField] private MixMode mixMode;
+    
     
     public static AudioManager Instance { get; private set; }
 
@@ -48,5 +59,10 @@ public class AudioManager : MonoBehaviour
     public AudioMixer GetSFXAudioMixer()
     {
         return SFXAudioMixer;
+    }
+
+    public MixMode GetMixingMode()
+    {
+        return mixMode;
     }
 }
