@@ -81,7 +81,6 @@ public class ShipPackageController : MonoBehaviour
         remainingPackagesLeft--;
         if (remainingPackagesLeft <= 0)
         {
-            Debug.Log("HOLA");
             remainingPackagesLeft = 0;
             packageHUD.ToggleOutOfPackages();
         }
