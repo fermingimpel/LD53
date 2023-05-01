@@ -13,7 +13,7 @@ public class PlayerHUD : MonoBehaviour
     [SerializeField] Color powerNotReadyColor;
     [SerializeField] Color powerReadyColor;
 
-    public void SetTimerTextValue(float remainingTime)
+    public void SetTimerTextValue(int remainingTime)
     {
         timerText.text = remainingTime.ToString();
     }

@@ -5,6 +5,8 @@ public class ShipPackageController : MonoBehaviour
     [SerializeField] private int maxNumOfPackages = 3;
     [SerializeField] private int maxNumOfDeliveries = 3;
 
+    int packagesDelivered = 0;
+
     private Level levelManager;
     private PlayerHUD playerHUD;
 
@@ -23,6 +25,7 @@ public class ShipPackageController : MonoBehaviour
 
     public void PackageDelivered()
     {
+        packagesDelivered++;
         remainingDeliveriesLeft--;
         if(remainingDeliveriesLeft <= 0)
         {
@@ -63,5 +66,10 @@ public class ShipPackageController : MonoBehaviour
     public int GetMaxNumOfDeliveries()
     {
         return maxNumOfDeliveries;
+    }
+
+    public int GetPackagesDelivered()
+    {
+        return packagesDelivered;
     }
 }
