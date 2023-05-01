@@ -16,21 +16,11 @@ public class Level : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        House.houseNoMore += houseNoMore;
         shipPackageController = FindObjectOfType<ShipPackageController>();
         grid = GetComponent<CustomGrid>();
         spawnedBuildings = new List<GameObject>();
         SpawnHouses();
-    }
-
-    private void Update()
-    {
-        foreach (var spawnedBuilding in spawnedBuildings)
-        {
-            if (spawnedBuilding.GetComponent<House>().GetIsCurrent())
-                currentHouses.Add(spawnedBuilding);
-            else if (currentHouses.Contains(spawnedBuilding))
-                currentHouses.Remove(spawnedBuilding);
-        }
     }
 
     void SpawnHouses()
@@ -49,15 +39,29 @@ public class Level : MonoBehaviour
     {
         List<GameObject> tempList = new List<GameObject>();
 
+        currentHouses.Clear();
+
         for(int i = 0; i < shipPackageController.GetMaxNumOfDeliveries(); i++)
         {
             House houseToDelivery = spawnedBuildings[Random.Range(0, spawnedBuildings.Count)].GetComponent<House>();
             houseToDelivery.SetCurrent(true);
             tempList.Add(houseToDelivery.gameObject);
             spawnedBuildings.Remove(houseToDelivery.gameObject);
+
+            currentHouses.Add(houseToDelivery.gameObject);
         }
 
         for (int i = 0; i < tempList.Count; i++)
             spawnedBuildings.Add(tempList[i]);
+    }
+
+    private void OnDisable()
+    {
+        House.houseNoMore -= houseNoMore;
+    }
+
+    private void houseNoMore(GameObject house)
+    {
+        currentHouses.Remove(house);
     }
 }
