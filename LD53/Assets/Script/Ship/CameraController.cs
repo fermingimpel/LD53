@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     private float RollDirection;
     
     private Rigidbody Rigidbody;
-    
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -34,4 +34,5 @@ public class CameraController : MonoBehaviour
         Vector3 Direction = new Vector3(MouseAxis.y, MouseAxis.x,RollDirection);
         Rigidbody.AddTorque((transform.localRotation * Direction) * MouseSensitivity, ForceMode.Acceleration);
     }
+    
 }

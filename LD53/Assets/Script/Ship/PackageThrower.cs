@@ -3,12 +3,15 @@ using UnityEngine;
 
 public class PackageThrower : MonoBehaviour
 {
+    [Header("Package Data")]
     [SerializeField] private Transform packageSpawn;
     [SerializeField] private Package packageToThrow;
     [SerializeField] private float minPowerToThrow = 500.0f;
     [SerializeField] private float packageForceCharge = 500.0f;
     [SerializeField] private float initialForceCharge = 100.0f;
     [SerializeField] private float maxForceCharge = 3000.0f;
+    [Header("Audio")] 
+    [SerializeField] private AudioClip ShootAudio;
 
     private bool chargingPackageForce = false;
     private float forceCharge;
@@ -54,6 +57,9 @@ public class PackageThrower : MonoBehaviour
 
                     instantiatedPackage.transform.rotation = transform.rotation;
                     instantiatedPackage.GetComponent<Rigidbody>().AddForce(transform.forward * forceCharge);
+                    
+                    if(ShootAudio)
+                        AudioManager.Instance.Play2DSound(ShootAudio);
 
                     shipPackageController.PackageThrowed();
                     playerHUD.SetPowerBarEnabled(false);
