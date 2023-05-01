@@ -8,8 +8,9 @@ public class PlayerHUD : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private TextMeshProUGUI packagesRemainingText;
+    [SerializeField] private TextMeshProUGUI packageDeliveredText;
     [SerializeField] private Image powerImageSlider;
-    [SerializeField] private GameObject powerBar;
+    [SerializeField] private GameObject powerBar; 
 
     [SerializeField] Color powerNotReadyColor;
     [SerializeField] Color powerReadyColor;
@@ -36,6 +37,11 @@ public class PlayerHUD : MonoBehaviour
     public void SetPowerBarEnabled(bool Value)
     {
         powerBar.SetActive(Value);
+    }
+
+    public void SetPackageDelivered(int packageDelivered, int maxPackage)
+    {
+        packageDeliveredText.text = packageDelivered + " / " + maxPackage;
     }
 
 }
