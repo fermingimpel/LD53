@@ -6,6 +6,7 @@ public class ShipPackageController : MonoBehaviour
     [SerializeField] private int maxNumOfDeliveries = 3;
 
     private Level levelManager;
+    private PlayerHUD playerHUD;
 
     int remainingDeliveriesLeft;
     int remainingPackagesLeft;
@@ -15,6 +16,9 @@ public class ShipPackageController : MonoBehaviour
         remainingDeliveriesLeft = maxNumOfDeliveries;
 
         levelManager = FindObjectOfType<Level>();
+        playerHUD = GetComponent<PlayerHUD>();
+
+        playerHUD.SetPackagesRemaining(remainingPackagesLeft);
     }
 
     public void PackageDelivered()
@@ -35,6 +39,7 @@ public class ShipPackageController : MonoBehaviour
     public void RegeneratePackages()
     {
         remainingPackagesLeft = maxNumOfPackages;
+        playerHUD.SetPackagesRemaining(remainingPackagesLeft);
     }
 
     public int GetRemainingDeliveriesLeft()
@@ -51,7 +56,8 @@ public class ShipPackageController : MonoBehaviour
     {
         remainingPackagesLeft--;
         if(remainingPackagesLeft <= 0)
-            remainingPackagesLeft = 0; 
+            remainingPackagesLeft = 0;
+        playerHUD.SetPackagesRemaining(remainingPackagesLeft);
     }
 
     public int GetMaxNumOfDeliveries()
