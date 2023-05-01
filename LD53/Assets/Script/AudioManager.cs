@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
     }
     
     [Header("Sources")]
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource shipSource;
     [SerializeField] private AudioSource musicSource;
     [Header("Mixers")]
     [SerializeField] private AudioMixer SFXAudioMixer;
@@ -38,7 +38,14 @@ public class AudioManager : MonoBehaviour
 
     public void Play2DSound(AudioClip clip)
     {
-        audioSource.PlayOneShot(clip);
+        shipSource.PlayOneShot(clip);
+    }
+
+    public void Play2DShipSound(AudioClip clip)
+    {
+        shipSource.clip = clip;
+        shipSource.loop = false;
+        shipSource.Play();
     }
 
     public void PlayMusic(AudioClip clip)
@@ -49,6 +56,23 @@ public class AudioManager : MonoBehaviour
         musicSource.loop = true;
         musicSource.clip = clip;
         musicSource.Play();
+    }
+
+    public void PlayAndLoopAudio(AudioClip clip)
+    {
+        shipSource.clip = clip;
+        shipSource.loop = true;
+        shipSource.Play();
+    }
+
+    public void StopShipSound()
+    {
+        shipSource.Stop();
+    }
+
+    public AudioSource GetCurrentSFX()
+    {
+        return shipSource;
     }
 
     public AudioMixer GetMusicAudioMixer()

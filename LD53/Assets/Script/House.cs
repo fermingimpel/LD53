@@ -9,11 +9,9 @@ public class House : MonoBehaviour
     private bool isCurrent;
     private ShipPackageController shipPackageController;
 
-    private Vector3 baseScale;
    void Start()
     {
         shipPackageController = FindObjectOfType<ShipPackageController>();
-        baseScale = transform.localScale;
     }
 
     public void SetCurrent(bool current)
