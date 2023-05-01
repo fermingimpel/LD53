@@ -21,7 +21,6 @@ public class AsteroidBehaviour : MonoBehaviour
         
         direction = (transform.position - player.position).normalized;
 
-
         Destroy(gameObject, lifeSpan);
     }
 
@@ -32,6 +31,6 @@ public class AsteroidBehaviour : MonoBehaviour
 
     private void OnDestroy()
     {
-        OnDestroyed.Invoke();
+        OnDestroyed?.Invoke();
     }
 }

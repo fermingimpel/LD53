@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class House : MonoBehaviour
 {
-    [SerializeField] private float gravity = 1;
     private bool isCurrent;
     private ShipPackageController shipPackageController;
 
-    private Vector3 baseScale;
    void Start()
     {
         shipPackageController = FindObjectOfType<ShipPackageController>();
-        baseScale = transform.localScale;
     }
 
     public void SetCurrent(bool current)
