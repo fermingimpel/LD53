@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class AsteroidSpawner : MonoBehaviour
 {
-    private float spawnRadius = 10f;
+    [SerializeField] float spawnRadius = 10f;
 
     [SerializeField] List<GameObject> asteroidPrefab;
     [SerializeField] Transform player;
     [SerializeField] float spawnInterval;
+    [SerializeField] float initialDelay;
     public List<GameObject> asteroids;
 
     private int currentAsteroids;
@@ -25,8 +26,14 @@ public class AsteroidSpawner : MonoBehaviour
 
         if (spawnOnStart)
         {
-            StartCoroutine(SpawnAsteroids());
+            StartCoroutine(SpawnAsteroidsWithDelay());
         }
+    }
+
+    IEnumerator SpawnAsteroidsWithDelay()
+    {
+        yield return new WaitForSeconds(initialDelay);
+        StartCoroutine(SpawnAsteroids());
     }
 
     IEnumerator SpawnAsteroids()
