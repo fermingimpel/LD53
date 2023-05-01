@@ -1404,7 +1404,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &231730347
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3894,8 +3894,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9639,7 +9639,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button South [Gamepad]
+  m_text: A [Xbox Controller]
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14266,8 +14266,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -14913,10 +14913,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "ART:\n\nEzequiel Mu\xF1oz - 3D\nIan Le Bot - ?\nLautaro Lajmanovich -
+  m_text: "ART:\n\nEzequiel Mu\xF1oz - 3D\nIan Le Bot - 2D\nLautaro Lajmanovich -
     2D\nKai Monroy - 2D\nSofia Albano - 3D\nMalena Galli - 2D\nRocio Gimenez - 2D\nFiorella
     Gaston - 3D\nSantino Carbonari - 3D\nRamiro Saravia - 3D\nAgostina Rodriguez
-    Larrivey - 3D\nMarcos Bruno Crespo - 3D"
+    Larrivey - 3D\nMarcos Bruno Crespo - 3D\nJosefina De Salvo - 3D\nJuan Brutti
+    - 3D\nFrancisca Traini - 3D\nMartina Bonfiglio - 2D"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf897fd99174ea144b6745347cc1679b, type: 2}
   m_sharedMaterial: {fileID: 3844998339104511099, guid: cf897fd99174ea144b6745347cc1679b, type: 2}
@@ -14943,8 +14944,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
