@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class House : MonoBehaviour
 {
-    [SerializeField] private float gravity = 1;
     [SerializeField] GameObject targetHouseLight;
     private bool isCurrent;
     private ShipPackageController shipPackageController;

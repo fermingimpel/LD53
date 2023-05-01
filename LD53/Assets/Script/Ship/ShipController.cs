@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -11,24 +12,37 @@ public class ShipController : MonoBehaviour
     //Inspector variables
     [Header("Movement")]
     [SerializeField] private float Force = 10f;
+    [SerializeField] private float TurboForce = 20f;
+    [SerializeField] private float turboCooldown = 1f;
 
 
     [Header("Audio")]
     [SerializeField] private AudioClip StartEngine;
     public AudioClip LoopEngine;
+    public AudioClip TurboLoopEngine;
     public AudioClip StopEngine;
 
 
+    [Header("VFX")] 
+    [SerializeField] private float turboShakeMagnitude = .4f;
+    [SerializeField] private float turboShakeDuration = .15f;
+    
+    
     //Variables
     private AsteroidSpawner asteroidSpawner;
     private Vector3 Movement;
     private Vector2 MovementAxis;
     private float HoverDirection;
     private GameObject asteroidDir;
+    private bool isTurboOn = false;
+    private bool canActivateTurbo = true;
+    private bool isInCooldown = false;
+    private Animator shipAnimator;
 
     //Components
     private Rigidbody Rigidbody;
     private AudioManager _audioManager;
+    private AudioClip currentEngineSound;
 
     private void Start()
     {
@@ -37,6 +51,8 @@ public class ShipController : MonoBehaviour
         asteroidSpawner = GameObject.Find("GameManager").GetComponent<AsteroidSpawner>();
         asteroidDir = GameObject.Find("AsteroidDir");
         _audioManager = AudioManager.Instance;
+        shipAnimator = GetComponentInChildren<Animator>();
+        currentEngineSound = LoopEngine;
     }
 
     void OnMove(InputValue value)
@@ -51,15 +67,39 @@ public class ShipController : MonoBehaviour
         PlayThrusterSound();
     }
 
+    void OnTurbo()
+    {
+        if (canActivateTurbo && !isInCooldown)
+        {
+            if (!isTurboOn)
+            {
+                shipAnimator.SetBool("IsInTurbo", true);
+            }
+            
+            isTurboOn = !isTurboOn;
+            PlayThrusterSound();
+            if (!isTurboOn)
+            {
+                shipAnimator.SetBool("IsInTurbo", false);
+                StartCoroutine(TurboCooldown());
+            }
+        }
+    }
+
     private void FixedUpdate()
     {
+        float currentForce = isTurboOn ? TurboForce : Force;
         Vector3 Direction = new Vector3(MovementAxis.x, HoverDirection, MovementAxis.y);
-        Rigidbody.AddForce(transform.TransformDirection(Direction) * Force, ForceMode.Acceleration);
+        Rigidbody.AddForce(transform.TransformDirection(Direction) * currentForce, ForceMode.Acceleration);
     }
 
     private void Update()
     {
         UpdateHitscanRot();
+        if (isTurboOn)
+        {
+            StartCoroutine(ScreenShakeManager.Instance.ScreenShake(turboShakeDuration, turboShakeMagnitude));
+        }
     }
 
     private void UpdateHitscanRot()
@@ -107,13 +147,28 @@ public class ShipController : MonoBehaviour
 
     public void PlayThrusterSound()
     {
-        if (_audioManager.GetCurrentSFX().clip != StopEngine &&
+        currentEngineSound = isTurboOn ? TurboLoopEngine : LoopEngine;
+        if (_audioManager.GetCurrentSFX().clip != StopEngine && 
             IsVectorCloseToZero(MovementAxis, 0.05f) && IsFloatCloseToZero(HoverDirection, 0.05f))
         {
+            if (isTurboOn)
+                OnTurbo();
+            
+            canActivateTurbo = false;
             _audioManager.StopShipSound();
             _audioManager.Play2DShipSound(StopEngine);
         }
-        else if (_audioManager.GetCurrentSFX().clip != LoopEngine)
-            _audioManager.PlayAndLoopAudio(LoopEngine);
+        else if (_audioManager.GetCurrentSFX().clip != currentEngineSound)
+        {
+            _audioManager.PlayAndLoopAudio(currentEngineSound);
+            canActivateTurbo = true;
+        }
+    }
+
+    IEnumerator TurboCooldown()
+    {
+        isInCooldown = true;
+        yield return new WaitForSeconds(turboCooldown);
+        isInCooldown = false;
     }
 }

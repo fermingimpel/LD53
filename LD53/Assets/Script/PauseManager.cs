@@ -23,6 +23,7 @@ public class PauseManager : MonoBehaviour
       InputManager.Instance.ChangeActionMapping("Player");
       Cursor.lockState = CursorLockMode.Locked;
       Cursor.visible = false;
+      AudioManager.Instance.GetCurrentSFX().Pause();
       //todo: add animations later
    }
 
@@ -36,6 +37,7 @@ public class PauseManager : MonoBehaviour
          InputManager.Instance.ChangeActionMapping("UI");
          Cursor.lockState = CursorLockMode.None;
          Cursor.visible = true;
+         AudioManager.Instance.GetCurrentSFX().UnPause();
       }
       else
       {
