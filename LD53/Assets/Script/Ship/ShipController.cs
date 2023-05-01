@@ -11,7 +11,6 @@ public class ShipController : MonoBehaviour
     //Inspector variables
     [Header("Movement")]
     [SerializeField] private float Force = 10f;
-    [SerializeField] private GameObject hitMark;
 
 
     [Header("Audio")] 
@@ -35,7 +34,6 @@ public class ShipController : MonoBehaviour
     {
         Rigidbody = GetComponent<Rigidbody>();
         MovementAxis = Vector2.zero;
-        hitMark = GameObject.Find("HitScan");
         asteroidSpawner = GameObject.Find("GameManager").GetComponent<AsteroidSpawner>();
         asteroidDir = GameObject.Find("AsteroidDir");
         _audioManager = AudioManager.Instance;
@@ -76,7 +74,7 @@ public class ShipController : MonoBehaviour
         
         asteroidDir.transform.LookAt(closestAst);
     }
-}
+
     private bool IsVectorCloseToZero(Vector2 vector, float offset)
     {
         return vector.x >= (-0.05 - offset) && vector.x <= (0.05 + offset) && 
