@@ -239,7 +239,8 @@ PrefabInstance:
       value: casa final
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -4196952040310456772, guid: f4447eab2ab3b5d4ca3d9b4e5f10d8cf, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4447eab2ab3b5d4ca3d9b4e5f10d8cf, type: 3}
