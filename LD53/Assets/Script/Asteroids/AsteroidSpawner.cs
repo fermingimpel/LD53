@@ -7,7 +7,7 @@ public class AsteroidSpawner : MonoBehaviour
 {
     private float spawnRadius = 10f;
 
-    [SerializeField] GameObject asteroidPrefab;
+    [SerializeField] List<GameObject> asteroidPrefab;
     [SerializeField] Transform player;
     [SerializeField] float spawnInterval;
 
@@ -18,6 +18,8 @@ public class AsteroidSpawner : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.Find("Ship").transform;
+
         currentAsteroids = 0;
 
         if (spawnOnStart)
@@ -42,7 +44,7 @@ public class AsteroidSpawner : MonoBehaviour
     void SpawnAsteroid()
     {
         Vector3 spawnPosition = transform.position + Random.onUnitSphere * spawnRadius;
-        GameObject asteroid = Instantiate(asteroidPrefab, player.position + spawnPosition, Quaternion.identity, gameObject.transform);
+        GameObject asteroid = Instantiate(asteroidPrefab[Random.Range(0, asteroidPrefab.Count)], player.position + spawnPosition, Quaternion.identity, gameObject.transform);
         asteroid.GetComponent<AsteroidBehaviour>().OnDestroyed += OnAsteroidDestroyed;
     }
 

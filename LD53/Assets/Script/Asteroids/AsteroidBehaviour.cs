@@ -1,14 +1,12 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class AsteroidBehaviour : MonoBehaviour
 {
     public Action OnDestroyed;
 
-    [SerializeField] float asteroidSpeed;
+    [SerializeField] private float asteroidSpeed = 10.0f;
+    [SerializeField] private float lifeSpan = 10.0f;
 
     Transform player;
     Rigidbody rb;
@@ -24,7 +22,7 @@ public class AsteroidBehaviour : MonoBehaviour
         direction = (transform.position - player.position).normalized;
 
 
-        Destroy(gameObject, 10.0f);
+        Destroy(gameObject, lifeSpan);
     }
 
     void FixedUpdate()
