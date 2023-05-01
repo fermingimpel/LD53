@@ -10,6 +10,7 @@ public class AsteroidSpawner : MonoBehaviour
     [SerializeField] List<GameObject> asteroidPrefab;
     [SerializeField] Transform player;
     [SerializeField] float spawnInterval;
+    public List<GameObject> asteroids;
 
     private int currentAsteroids;
     private int maxAsteroids = 10;
@@ -46,10 +47,12 @@ public class AsteroidSpawner : MonoBehaviour
         Vector3 spawnPosition = transform.position + Random.onUnitSphere * spawnRadius;
         GameObject asteroid = Instantiate(asteroidPrefab[Random.Range(0, asteroidPrefab.Count)], player.position + spawnPosition, Quaternion.identity, gameObject.transform);
         asteroid.GetComponent<AsteroidBehaviour>().OnDestroyed += OnAsteroidDestroyed;
+        asteroids.Add(asteroid);
     }
 
-    void OnAsteroidDestroyed()
+    void OnAsteroidDestroyed(GameObject asteroid)
     {
         currentAsteroids--;
+        asteroids.Remove(asteroid);
     }
 }
