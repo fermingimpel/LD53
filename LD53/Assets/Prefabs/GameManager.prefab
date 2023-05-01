@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4331874100820996570}
   - component: {fileID: 6789220160064678297}
   - component: {fileID: 6400225650361658417}
+  - component: {fileID: 2498311051642174194}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3661a12f6b20f13479cdd822fcf873df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  houseQty: 12
+  houseQty: 3
   mapPrefabs:
   - {fileID: 3291884913416602057, guid: eeec3bd8c0d18a040804f21498613332, type: 3}
   - {fileID: 3291884913416602057, guid: 0234a1c9d3522644082fe503b62fd54f, type: 3}
@@ -62,7 +63,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcef178862afd1049aee72f48bdf334a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 50
-  height: 50
+  width: 3
+  height: 3
   cellSize: 10
   shouldDraw: 0
+--- !u!114 &2498311051642174194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4249765817935104950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3fd03d320aa07469008607e1928644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playTime: 30
+  menuSceneName: EndGame
