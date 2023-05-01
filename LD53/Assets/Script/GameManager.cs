@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private float playTime = 75.0f;
     [SerializeField] private string menuSceneName = "jorge";
+
     private bool playing = true;
 
     private float maxTimePlayed = 0.0f;
