@@ -10,6 +10,7 @@ public class ShipPackageController : MonoBehaviour
 
     private Level levelManager;
     private PlayerHUD playerHUD;
+    private PackageControllerHUD packageHUD;
 
     int remainingDeliveriesLeft;
     int remainingPackagesLeft;
@@ -22,6 +23,7 @@ public class ShipPackageController : MonoBehaviour
 
         levelManager = FindObjectOfType<Level>();
         playerHUD = GetComponent<PlayerHUD>();
+        packageHUD = GetComponent<PackageControllerHUD>();
 
         playerHUD.SetPackagesRemaining(remainingPackagesLeft);
 
@@ -35,18 +37,25 @@ public class ShipPackageController : MonoBehaviour
         if(remainingDeliveriesLeft <= 0)
         {
             remainingDeliveriesLeft = 0;
+
+            packageHUD.ToggleOutOfDeliveries();
         }
         gameManager.AddTimeRemaining(packageDeliveredExtraTime);
     }
 
     public void CreateNewDeliveries()
     {
+        packageHUD.ToggleOutOfDeliveries();
+
         remainingDeliveriesLeft = maxNumOfDeliveries;
         levelManager.ChangeHousesToDelivery();
     }
 
     public void RegeneratePackages()
     {
+        if (remainingPackagesLeft <= 0)
+            packageHUD.ToggleOutOfPackages();
+
         remainingPackagesLeft = maxNumOfPackages;
         playerHUD.SetPackagesRemaining(remainingPackagesLeft);
     }
@@ -64,8 +73,12 @@ public class ShipPackageController : MonoBehaviour
     public void PackageThrowed()
     {
         remainingPackagesLeft--;
-        if(remainingPackagesLeft <= 0)
+        if (remainingPackagesLeft <= 0)
+        {
+            Debug.Log("HOLA");
             remainingPackagesLeft = 0;
+            packageHUD.ToggleOutOfPackages();
+        }
         playerHUD.SetPackagesRemaining(remainingPackagesLeft);
     }
 
