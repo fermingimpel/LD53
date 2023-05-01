@@ -11,5 +11,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndGame.unity
     guid: 10cf7ef4e6494cd4f93a1f4bd5e87075
+  - enabled: 1
+    path: Assets/Scenes/Rama.unity
+    guid: 2895db9c741c07641afd025efd3c29cb
+  - enabled: 1
+    path: Assets/Scenes/Cinematic.unity
+    guid: 6a68a723a3f831346810e93819826aa1
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: ec7db37203fb4ff428adb5b439344782, type: 2}
