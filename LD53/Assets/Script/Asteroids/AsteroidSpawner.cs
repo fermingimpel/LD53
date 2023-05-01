@@ -8,11 +8,11 @@ public class AsteroidSpawner : MonoBehaviour
     [SerializeField] float spawnRadius = 10f;
 
     [SerializeField] List<GameObject> asteroidPrefab;
-    [SerializeField] Transform player;
     [SerializeField] float spawnInterval;
     [SerializeField] float initialDelay;
     public List<GameObject> asteroids;
 
+    private Transform player;
     private int currentAsteroids;
     private int maxAsteroids = 10;
     private bool spawnOnStart = true;

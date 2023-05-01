@@ -761,6 +761,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7596200665314084385, guid: be759a4d5f9640444b870106a033d825, type: 3}
+      propertyPath: spawnRadius
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7596200665314084385, guid: be759a4d5f9640444b870106a033d825, type: 3}
+      propertyPath: initialDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7596200665314084385, guid: be759a4d5f9640444b870106a033d825, type: 3}
       propertyPath: asteroidPrefab.Array.size
       value: 1
       objectReference: {fileID: 0}
