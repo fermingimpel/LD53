@@ -40,4 +40,9 @@ public class House : MonoBehaviour
             shipPackageController.PackageDelivered();
         }
     }
+
+    public bool GetIsCurrent()
+    {
+        return isCurrent;
+    }
 }
