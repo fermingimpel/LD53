@@ -16,6 +16,7 @@ public class ShipPackageController : MonoBehaviour
     int remainingPackagesLeft;
 
     private GameManager gameManager;
+
     void Start()
     {
         remainingPackagesLeft = maxNumOfPackages;
