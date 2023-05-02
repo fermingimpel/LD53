@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class House : MonoBehaviour
 {
     [SerializeField] GameObject targetHouseLight;
     private bool isCurrent;
     private ShipPackageController shipPackageController;
+
+    public static UnityAction<GameObject> houseNoMore;
 
    void Start()
     {
@@ -37,6 +40,8 @@ public class House : MonoBehaviour
             other.gameObject.GetComponent<Package>().orbitCenter = transform.position;
             SetCurrent(false);
             shipPackageController.PackageDelivered();
+
+            houseNoMore?.Invoke(gameObject);
         }
     }
 
