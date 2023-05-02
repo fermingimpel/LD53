@@ -53,6 +53,7 @@ public class PauseManager : MonoBehaviour
 
    public void OnRestart()
    {
+      Time.timeScale = 1;
       //todo: replace with game scene
       SceneManager.LoadScene("Topo");
    }
@@ -60,6 +61,7 @@ public class PauseManager : MonoBehaviour
    public void OnQuit()
    {
       //todo: Replace with menu
+      Time.timeScale = 1;
       SceneManager.LoadScene("Menu");
    }
 
