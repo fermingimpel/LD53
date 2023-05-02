@@ -53,6 +53,8 @@ MonoBehaviour:
   - {fileID: 3291884913416602057, guid: 0234a1c9d3522644082fe503b62fd54f, type: 3}
   - {fileID: 3291884913416602057, guid: fae552941730b6d42a00f9d8f5c15741, type: 3}
   - {fileID: 3291884913416602057, guid: ecc57ca81159c604f916a4a46677bed0, type: 3}
+  - {fileID: 3291884913416602057, guid: 71ef91094a5e7e948835e0245f000be4, type: 3}
+  currentHouses: []
 --- !u!114 &6400225650361658417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a3fd03d320aa07469008607e1928644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playTime: 30
+  playTime: 60
   menuSceneName: EndGame
 --- !u!114 &7596200665314084385
 MonoBehaviour:
@@ -95,6 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f733db43d2714a8469f03e20ad3b0804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidPrefab: {fileID: 7182831353281914257, guid: d5dc471f87f670d40b1b3fab88968744, type: 3}
-  player: {fileID: 0}
+  spawnRadius: 10
+  asteroidPrefab:
+  - {fileID: 7182831353281914257, guid: d5dc471f87f670d40b1b3fab88968744, type: 3}
   spawnInterval: 5
+  initialDelay: 0
+  asteroids: []
