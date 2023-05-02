@@ -54,13 +54,13 @@ public class PauseManager : MonoBehaviour
    public void OnRestart()
    {
       //todo: replace with game scene
-      SceneManager.LoadScene("Iker");
+      SceneManager.LoadScene("Topo");
    }
 
    public void OnQuit()
    {
       //todo: Replace with menu
-      SceneManager.LoadScene("Iker");
+      SceneManager.LoadScene("Menu");
    }
 
    public void OnOptionsOpen()
