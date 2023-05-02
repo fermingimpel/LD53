@@ -98,7 +98,7 @@ public class ShipController : MonoBehaviour
         UpdateHitscanRot();
         if (isTurboOn)
         {
-            StartCoroutine(ScreenShakeManager.Instance.ScreenShake(turboShakeDuration, turboShakeMagnitude));
+            //StartCoroutine(ScreenShakeManager.Instance.ScreenShake(turboShakeDuration, turboShakeMagnitude));
         }
     }
 
